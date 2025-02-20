@@ -4,10 +4,12 @@
 |Vert {Pos Tex Norm}
 
 LookupVerts! ← ≡(⋕get⍤"backwards indexes not yet supported">0.) ⊙(¤map≡◇(⊃(⊡0|⊡1)) °□get ^0)
-  
+
+SplitBy ← ⊜□⊸(¬↧1⦷)
+
 # Face[] ? String
 Parse ← (
-  ≡⍚(SplitBy" " Trim) SplitBy"\n"
+  ≡⍚(SplitBy" ") SplitBy"\n"
   ≡◇(⍣(1°"v"|2°"vt"|3°"vn"|3°"f"|0) °□⊢).
   ⍜⊕□⍚(+₁⇡⧻).
   ≡(⊙(□⊂) :⊙⊃(◇⊢|⍚(↘1)))
